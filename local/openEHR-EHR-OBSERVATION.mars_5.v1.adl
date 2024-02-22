@@ -24,7 +24,7 @@ description
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
-		["MD5-CAM-1.0.1"] = <"9e58661e02c2a73d516df403cd585a6b">
+		["MD5-CAM-1.0.1"] = <"455fa52aa6d1764e966eb7f304b07a44">
 	>
 
 definition
@@ -36,7 +36,7 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forget to take them
+									ELEMENT[at0004] matches {    -- I forget to take them
 										value matches {
 											1|[local::at0005],
 											2|[local::at0006],
@@ -45,7 +45,7 @@ definition
 											5|[local::at0026]
 										}
 									}
-									ELEMENT[at0009] occurrences matches {0..1} matches {    -- I alter the dose
+									ELEMENT[at0009] matches {    -- I alter the dose
 										value matches {
 											1|[local::at0005],
 											2|[local::at0006],
@@ -54,7 +54,7 @@ definition
 											5|[local::at0027]
 										}
 									}
-									ELEMENT[at0012] occurrences matches {0..1} matches {    -- I stop taking them for a while
+									ELEMENT[at0012] matches {    -- I stop taking them for a while
 										value matches {
 											1|[local::at0005],
 											2|[local::at0006],
@@ -63,7 +63,7 @@ definition
 											5|[local::at0028]
 										}
 									}
-									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
+									ELEMENT[at0013] matches {    -- I decide to miss out a dose
 										value matches {
 											1|[local::at0005],
 											2|[local::at0006],
@@ -72,7 +72,7 @@ definition
 											5|[local::at0029]
 										}
 									}
-									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
+									ELEMENT[at0014] matches {    -- I take less than instructed
 										value matches {
 											1|[local::at0005],
 											2|[local::at0006],
@@ -81,7 +81,7 @@ definition
 											5|[local::at0030]
 										}
 									}
-									ELEMENT[at0011] occurrences matches {0..1} matches {    -- MARS-5 score
+									ELEMENT[at0011] matches {    -- MARS-5 score
 										value matches {
 											DV_COUNT matches {
 												magnitude matches {|5..25|}
