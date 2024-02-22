@@ -24,7 +24,7 @@ description
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
 		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
-		["MD5-CAM-1.0.1"] = <"f4e0779352ab1da1890ffa2249f6e934">
+		["MD5-CAM-1.0.1"] = <"9e58661e02c2a73d516df403cd585a6b">
 	>
 
 definition
@@ -95,9 +95,6 @@ definition
 				}
 			}
 		}
-		protocol matches {
-			ITEM_TREE[at0024] matches {*}    -- Tree
-		}
 	}
 
 ontology
@@ -164,10 +161,6 @@ ontology
 					text = <"I take less than instructed">
 					description = <"Over the last two weeks, how often have you been bothered by poor appetite or overeating?">
 					comment = <"Adapted for Australian indigenous use: \"Have you not felt like eating much even when there was food around, or have you been eating too much food?\"">
-				>
-				["at0024"] = <
-					text = <"Tree">
-					description = <"@ internal @">
 				>
 				["at0026"] = <
 					text = <"Never">
