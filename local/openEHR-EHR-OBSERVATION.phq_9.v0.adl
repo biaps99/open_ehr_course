@@ -40,7 +40,7 @@ Kroenke K, Spitzer RL, Williams JB. The Patient Health Questionnaire-2: validity
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5591953BB82BBEFBD0AB521E8EF5DB71">
+		["MD5-CAM-1.0.1"] = <"3dbb9519cfc007130d94b099af821084">
 		["build_uid"] = <"d6653acb-2695-4c08-8840-30198bbddeff">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -54,89 +54,55 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Interest/pleasure
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forget to take them
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0026]
 										}
 									}
-									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Feeling down
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- I alter the dose
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
 										}
 									}
-									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Sleep issues
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- I stop taking them for a while
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0028]
 										}
 									}
-									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Tired/little energy
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0029]
 										}
 									}
-									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Appetite
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
 										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0030]
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Feeling bad about yourself
-										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
-										}
-									}
-									ELEMENT[at0016] occurrences matches {0..1} matches {    -- Trouble concentrating
-										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
-										}
-									}
-									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Slow/fidgety
-										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
-										}
-									}
-									ELEMENT[at0018] occurrences matches {0..1} matches {    -- Death/self-harm
-										value matches {
-											0|[local::at0005],
-											1|[local::at0006],
-											2|[local::at0007],
-											3|[local::at0008]
-										}
-									}
-									ELEMENT[at0010] occurrences matches {0..1} matches {    -- PHQ-2 score
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- MARS-5 score
 										value matches {
 											DV_COUNT matches {
-												magnitude matches {|0..6|}
-											}
-										}
-									}
-									ELEMENT[at0011] occurrences matches {0..1} matches {    -- PHQ-9 score
-										value matches {
-											DV_COUNT matches {
-												magnitude matches {|0..27|}
+												magnitude matches {|5..25|}
 											}
 										}
 									}
@@ -193,74 +159,49 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"Interest/pleasure">
+					text = <"I forget to take them">
 					description = <"Over the last two weeks, how often have you been bothered by little interest or pleasure in doing things?">
 					comment = <"Adapted for Australian indigenous use: \"Have you been feeling slack, not wanted to do anything?\"">
 				>
 				["at0005"] = <
-					text = <"Not at all">
-					description = <"The topic of the question has not affected the subject at all during the last two weeks.">
+					text = <"Always">
+					description = <"">
 				>
 				["at0006"] = <
-					text = <"Several days">
-					description = <"The topic of the question has affected the subject on several days during the last two weeks.">
+					text = <"Often">
+					description = <"">
 				>
 				["at0007"] = <
-					text = <"More than half the days">
-					description = <"The topic of the question has affected the subject more than half the days during the last two weeks.">
+					text = <"Sometimes">
+					description = <"">
 				>
 				["at0008"] = <
-					text = <"Nearly every day">
-					description = <"The topic of the question has affected the subject nearly every day during the last two weeks.">
+					text = <"Rarely">
+					description = <"">
 				>
 				["at0009"] = <
-					text = <"Feeling down">
+					text = <"I alter the dose">
 					description = <"Over the last two weeks, how often have you been bothered by feeling down, depressed, or hopeless?">
 					comment = <"Adapted for Australian indigenous use: \"Have you been feeling unhappy, depressed, really no good, that your spirit was sad?\"">
 				>
-				["at0010"] = <
-					text = <"PHQ-2 score">
-					description = <"Total score for the first two questions on 'Interest/Pleasure' and 'Feeling Down'.">
-				>
 				["at0011"] = <
-					text = <"PHQ-9 score">
+					text = <"MARS-5 score">
 					description = <"Total Score for all nine questions.">
 				>
 				["at0012"] = <
-					text = <"Sleep issues">
+					text = <"I stop taking them for a while">
 					description = <"Over the last two weeks, how often have you been bothered by trouble falling or staying asleep, or sleeping too much?">
 					comment = <"Adapted for Australian indigenous use: \"Have you found it hard to sleep at night, or had other problems with sleeping?\"">
 				>
 				["at0013"] = <
-					text = <"Tired/little energy">
+					text = <"I decide to miss out a dose">
 					description = <"Over the last two weeks, how often have you been bothered by feeling tired or having little energy?">
 					comment = <"Adapted for Australian indigenous use: \"Have you felt tired or weak, that you have no energy?\"">
 				>
 				["at0014"] = <
-					text = <"Appetite">
+					text = <"I take less than instructed">
 					description = <"Over the last two weeks, how often have you been bothered by poor appetite or overeating?">
 					comment = <"Adapted for Australian indigenous use: \"Have you not felt like eating much even when there was food around, or have you been eating too much food?\"">
-				>
-				["at0015"] = <
-					text = <"Feeling bad about yourself">
-					description = <"Over the last two weeks, how often have you been bothered by feeling bad about yourself — or that you are a failure or have let yourself or your family down?">
-					comment = <"Adapted for Australian indigenous use: \"Have you been feeling bad about yourself, that you are useless, no good, that you have let your family down?">
-				>
-				["at0016"] = <
-					text = <"Trouble concentrating">
-					description = <"Over the last two weeks, how often have you been bothered by trouble concentrating on things, such as reading the newspaper or watching television?">
-					comment = <"Adapted for Australian indigenous use: \"Have you felt like you can't think straight or clearly, its hard to learn new things or concentrate?\"">
-				>
-				["at0017"] = <
-					text = <"Slow/fidgety">
-					description = <"Over the last two weeks, how often have you been bothered by moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual?">
-					comment = <"Adapted for Australian indigenous use: \"Have you been talking slowly or moving around really slow, or have you felt that you can't sit still; you keep moving around too much?\"">
-				>
-				["at0018"] = <
-					text = <"Death/self-harm">
-					description = <"Over the last two weeks, how often have you been bothered 
-by thoughts that you would be better off dead or of hurting yourself in some way?">
-					comment = <"Adapted for Australian indigenous use: \"Have you beenthinking about hurting yourself or killing yourself?">
 				>
 				["at0019"] = <
 					text = <"Difficulty in life activities">
@@ -290,6 +231,26 @@ by thoughts that you would be better off dead or of hurting yourself in some way
 					text = <"Extension">
 					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
 					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0026"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Never">
+					description = <"">
 				>
 			>
 		>
