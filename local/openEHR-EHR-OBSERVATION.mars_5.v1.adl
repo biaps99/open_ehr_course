@@ -23,22 +23,80 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"541f4953388f220a2d1185fbdff56f1a">
 		["build_uid"] = <"1dc35bbe-83d1-3aa6-a5f9-ed20eca5717b">
+		["MD5-CAM-1.0.1"] = <"f4e0779352ab1da1890ffa2249f6e934">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- MARS_5
+	OBSERVATION[at0000] matches {    -- MARS-5
 		data matches {
-			HISTORY[at0001] matches {    -- History
+			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in Time
 						data matches {
-							ITEM_TREE[at0003] matches {*}    -- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- I forget to take them
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0026]
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- I alter the dose
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0027]
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- I stop taking them for a while
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0028]
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- I decide to miss out a dose
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0029]
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- I take less than instructed
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0030]
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- MARS-5 score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|5..25|}
+											}
+										}
+									}
+								}
+							}
 						}
 					}
 				}
 			}
+		}
+		protocol matches {
+			ITEM_TREE[at0024] matches {*}    -- Tree
 		}
 	}
 
@@ -47,20 +105,89 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"MARS_5">
-					description = <"MARS_5">
+					text = <"MARS-5">
+					description = <"Screening questionnaire for mental health that can be used by health professionals or self-reported by individuals.">
 				>
 				["at0001"] = <
-					text = <"History">
+					text = <"Event Series">
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Any event">
-					description = <"@ internal @">
+					text = <"Point in Time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
 				>
 				["at0003"] = <
 					text = <"Tree">
 					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"I forget to take them">
+					description = <"Over the last two weeks, how often have you been bothered by little interest or pleasure in doing things?">
+					comment = <"Adapted for Australian indigenous use: \"Have you been feeling slack, not wanted to do anything?\"">
+				>
+				["at0005"] = <
+					text = <"Always">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Often">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Sometimes">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Rarely">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"I alter the dose">
+					description = <"Over the last two weeks, how often have you been bothered by feeling down, depressed, or hopeless?">
+					comment = <"Adapted for Australian indigenous use: \"Have you been feeling unhappy, depressed, really no good, that your spirit was sad?\"">
+				>
+				["at0011"] = <
+					text = <"MARS-5 score">
+					description = <"Total Score for all nine questions.">
+				>
+				["at0012"] = <
+					text = <"I stop taking them for a while">
+					description = <"Over the last two weeks, how often have you been bothered by trouble falling or staying asleep, or sleeping too much?">
+					comment = <"Adapted for Australian indigenous use: \"Have you found it hard to sleep at night, or had other problems with sleeping?\"">
+				>
+				["at0013"] = <
+					text = <"I decide to miss out a dose">
+					description = <"Over the last two weeks, how often have you been bothered by feeling tired or having little energy?">
+					comment = <"Adapted for Australian indigenous use: \"Have you felt tired or weak, that you have no energy?\"">
+				>
+				["at0014"] = <
+					text = <"I take less than instructed">
+					description = <"Over the last two weeks, how often have you been bothered by poor appetite or overeating?">
+					comment = <"Adapted for Australian indigenous use: \"Have you not felt like eating much even when there was food around, or have you been eating too much food?\"">
+				>
+				["at0024"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Never">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Never">
+					description = <"">
 				>
 			>
 		>
